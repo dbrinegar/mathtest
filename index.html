@@ -1,0 +1,79 @@
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script src="mathtest.js"></script>
+<style>
+  body {
+    font-size: 3em;
+  }
+  .topFactor {
+  }
+  .left {
+    float: left;
+    width: 1em;
+    font-size: 0.85em;
+  }
+  .bottomFactor {
+  }
+  .line {
+    margin-left: 0;
+    width: 2em;
+  }
+  .answer {
+    font-size: 1em;
+    resize: none;
+    width: 2em;
+  }
+  .button {
+  }
+  .message {
+    background-color: yellow;
+    font-size: 0.5em;
+  }
+</style>
+</head>
+<body>
+  <span class="left">&nbsp;</span>
+  <span class="topFactor">0</span>
+  <br />
+  <span class="left">x</span>
+  <span class="bottomFactor">0</span>
+  <hr class="line" />
+  <textarea autofocus="autofocus" cols="3" rows="1" maxlength="3" class="answer"></textarea>
+  <button class="button" onclick="check()">check</button>
+  <div class="message"></div>
+
+  <script>
+    var A='.topFactor', B='.bottomFactor', R='.answer', M='.message';
+
+    MathTest.onUpdate(function (a,b,er,msg) {
+      $(A).text(a);
+      $(B).text(b);
+      if (er) {
+        $(R).css('background-color', 'red');
+      } else {
+        $(R).val('');
+        $(R).css('background-color', '');
+      }
+      if (msg) {
+        console.log(msg);
+        $(M).text(msg);
+      } else {
+        $(M).text('');
+      }
+    });
+
+    function check() {
+      MathTest.check($(A).text(), $(B).text(), $(R).val());
+    }
+
+    $('.answer').keypress(function(e) {
+      if (13 == e.which) {
+        check();
+        return false;
+      }
+    });
+  </script>
+</body>
+</html>
