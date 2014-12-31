@@ -58,10 +58,8 @@ var MathTest = function() {
           msg += 'passed ' + completed + ' complete test';
           msg += (completed > 1 ? 's' : '');
           newtest();
-        }
-        // give some encouragements for each test
-        if (0 === curTest % parseInt(tests.length / encouragements))
-        {
+        } else if (0 === curTest % parseInt(tests.length / encouragements)) {
+          // give some encouragements along the way
           var percentComplete = parseInt(100 * curTest / tests.length);
           msg = 'great work! ' + percentComplete + '% done';
         }
