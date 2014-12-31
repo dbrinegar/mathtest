@@ -21,9 +21,14 @@
     width: 2em;
   }
   .answer {
-    font-size: 1em;
-    resize: none;
     width: 2em;
+    font-size: 1em;
+    padding: 0;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
   .button {
   }
@@ -40,7 +45,7 @@
   <span class="left">x</span>
   <span class="bottomFactor">0</span>
   <hr class="line" />
-  <textarea autofocus="autofocus" cols="3" rows="1" maxlength="3" class="answer"></textarea>
+  <input autofocus="autofocus" type="number" cols="3" rows="1" maxlength="3" class="answer"></textarea>
   <button class="button" onclick="check()">check</button>
   <div class="message"></div>
 
