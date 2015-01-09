@@ -5,4 +5,4 @@ practice elementary school multiplication, with encouragement and stars for comp
 
 co-authored by 6th grader learning web technologies
 
-license: BSD 3 Clause
+license: BSD
